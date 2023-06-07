@@ -1,32 +1,9 @@
 //
-class User {
-  constructor(name, job) {
-    this.name = name;
-    this.job = job;
-  }
-  greet(msg = "") {
-    console.log(
-      `hello my name is ${this.name} and i am a ${this.job}  and ${msg}`
-    );
-  }
-
-  updateName(newName, newJob) {
-    this.name = newName;
-    this.job = newJob;
-    console.log(newName, newJob);
-  }
-}
-
-// let muly = new User("muly", "doctor");
-// muly.updateName("gili", "dancer");
-// muly.greet("toaster");
 
 // let ar = [0, 1, 2, 0, 0, 0];
 // let ar2 = [3, 4, 5];
 // ar = [...ar, ...ar2];
 // console.log(ar);
-
-// console.log(gili);
 
 // currying
 
@@ -44,14 +21,6 @@ class User {
 //   return [...array, element];
 // }
 
-// console.log(arr, "OG");
-// console.log(addElement(arr, 7));
-
-// let mulugeta = {
-//   name: "muly",
-//   job: "hopefully programmer",
-// };
-// let { job } = mulugeta;
 // let a = [1, 2, 3];
 // let b = a;
 // a.push(4);
@@ -125,9 +94,28 @@ class LinkedList {
     this.length++;
     return this;
   }
+
+  shift() {
+    // const newNode = new Node(value);
+    // check if no nodes in the list
+    if (!this.head) return undefined;
+    // what if we have only 1 node
+    // if there is more two nodes
+    let temp = this.head;
+    this.head = this.head.next;
+    temp.next = null;
+
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return temp;
+  }
 }
 
 const newList = new LinkedList(1);
 newList.push(2);
 newList.push(3);
-console.log(newList.unShift(4));
+newList.unShift(4);
+console.log(newList.shift());
+console.log(newList);
