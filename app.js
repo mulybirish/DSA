@@ -99,17 +99,40 @@ class LinkedList {
     // const newNode = new Node(value);
     // check if no nodes in the list
     if (!this.head) return undefined;
-    // what if we have only 1 node
+
     // if there is more two nodes
     let temp = this.head;
     this.head = this.head.next;
     temp.next = null;
 
     this.length--;
+    // what if we have only 1 node after the decrement !
     if (this.length === 0) {
       this.tail = null;
     }
     return temp;
+  }
+
+  get(index) {
+    //
+    if (index < 0 || index >= this.length) return undefined;
+    let temp = this.head;
+    for (let i = 0; i < index; i++) {
+      temp = temp.next;
+    }
+    return temp;
+  }
+
+  set(index, value) {
+    // get the index
+    let temp = this.get(index);
+    if (temp) {
+      // if temp is not null insert a new value
+      temp.value = value;
+      return true;
+    }
+
+    return false;
   }
 }
 
@@ -117,5 +140,7 @@ const newList = new LinkedList(1);
 newList.push(2);
 newList.push(3);
 newList.unShift(4);
-console.log(newList.shift());
+// console.log(newList.shift());
+console.log(newList.set(1, 8));
 console.log(newList);
+// console.log(newList.get());
