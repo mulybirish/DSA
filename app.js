@@ -159,7 +159,7 @@ class LinkedList {
     let temp = this.get(index);
     let before = this.get(index - 1);
     let after = this.get(index + 1);
-    // tutorial solution
+
     // before.next = temp ;
     // before.next = temp.next
     // temp.next = null
