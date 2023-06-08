@@ -134,6 +134,57 @@ class LinkedList {
 
     return false;
   }
+
+  insert(index, value) {
+    // op 1
+    if (index === 0) return this.unShift(value);
+    //op 2
+    if (index === this.length) return this.push(value);
+    // if index doesnt exsit
+    if (index < 0 || index > this.length) return false;
+
+    // to insert somewhere in the list
+    const newNode = new Node(value);
+    let temp = this.get(index - 1);
+    newNode.next = temp.next;
+    temp.next = newNode;
+    this.length++;
+    return true;
+  }
+
+  remove(index) {
+    if (index === 0) return this.shift();
+    if (index === this.length) return this.pop();
+    if (index < 0 || index >= this.length) return undefined;
+    let temp = this.get(index);
+    let before = this.get(index - 1);
+    let after = this.get(index + 1);
+    // tutorial solution
+    // before.next = temp ;
+    // before.next = temp.next
+    // temp.next = null
+
+    // my solution
+    before.next === null;
+    temp.next = after;
+    this.length--;
+    return temp;
+  }
+
+  reverse() {
+    let temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+    let next = temp.next;
+    let prev = null;
+    for (let i = 0; i < this.length; i++) {
+      next = temp.next;
+      temp.next = prev;
+      prev = temp;
+      temp = next;
+    }
+    return this;
+  }
 }
 
 const newList = new LinkedList(1);
@@ -142,5 +193,9 @@ newList.push(3);
 newList.unShift(4);
 // console.log(newList.shift());
 console.log(newList.set(1, 8));
-console.log(newList);
-// console.log(newList.get());
+// console.log(newList.insert(1, 9));
+// console.log(newList.remove(1), "del");
+// console.log(newList.remove(2), "del");
+// console.log(newList.remove(0), "del");
+// console.log(newList.remove(0), "del");
+console.log(newList.reverse());
