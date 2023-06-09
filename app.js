@@ -220,4 +220,15 @@ const findTargetValue = (arr, tValue) => {
     }
   }
   return [];
+  
 };
+
+//Question: Write a function that takes a string as input and returns the count of each character in the string. 
+//The function should return an object or a map with characters as keys and their respective counts as values.
+
+const charCount = (str) => {
+    // iterate over the str to check how many time the char accures 
+    for (let i = 0; i < str.length; i++){
+        
+    }
+}
