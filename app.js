@@ -199,3 +199,25 @@ console.log(newList.set(1, 8));
 // console.log(newList.remove(0), "del");
 // console.log(newList.remove(0), "del");
 console.log(newList.reverse());
+
+//Given an array of integers, write a function to find the two numbers that add up to a specific target value.
+// Return the indices of the two numbers in the array.
+
+//For example, given the array [2, 7, 11, 15] and a target value of 9,
+//the function should return [0, 1] because 2 + 7 equals 9, and their indices in the array are 0 and 1, respectively.
+
+//Take a moment to think about the problem and come up with a solution.
+// Once you have an answer, feel free to share it with me.
+
+const findTargetValue = (arr, tValue) => {
+  //iterate over the array and check with each if the prev and the next when added result in tValue
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === tValue) {
+        return [i, j];
+      }
+    }
+  }
+  return [];
+};
